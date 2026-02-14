@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Lion school</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="./app.js" type="module"></script>
+
 </head>
 <body>
     <header> 
@@ -18,11 +18,45 @@
     <!-- botão sair -->
 
         <div class="sair">
-            <button class="btnsair"> <img src="./img/Vector.png" alt="">Sair</button>
+            <button class="btnsair" id="btn-sair"> <img src="./img/Vector.png" alt="">Sair</button>
         </div>
     </header>
 
-        <main></main>
+        <main>
+
+            <div class="container_home" id="começo">
+
+                    <div class="dispositivos">
+
+                    <h2> Escolha um <span>curso</span> <br> para gerenciar</h2>
+                   
+                    <img src="./img/dispositivos-img.png" alt="">
+                
+                </div>
+                 
+                <div class="mulher">
+                    <img src="./img/studant.png" alt="">
+                </div>
+
+                <div class="cursos-btn" id="btn-curso">
+                    
+                <button class="btn-curso" > <img src="./img/ds-icon.png" alt="">DS</button>                    
+                <button class="btn-curso"> <img src="./img/redes-icon.png" alt="">Redes</button>
+                </div>
+            </div>
+
+            <!-- cursos e alunos -->
+            <div  class= "container_cursos" id="cursos">
+                <h2 id="titulo"></h2>
+            </div>
+
+
+                <!-- informações aluno -->
+            <div class="container_aluno" id="aluno"></div>
+
+           
+
+        </main>
 
         <footer>
               <!-- Contatos -->
