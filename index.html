@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> 
+    <link href='https://fonts.googleapis.com' rel='stylesheet'>
+
     <script src="./app.js" type="module"></script>
 
 </head>
@@ -18,13 +20,13 @@
     <!-- botão sair -->
 
         <div class="sair">
-            <button class="btnsair" id="btn-sair"> <img src="./img/Vector.png" alt="">Sair</button>
+            <button class="btnSair" id="btn-sair"> <img src="./img/Vector.png" alt="">Voltar</button>
         </div>
     </header>
 
         <main>
 
-            <div class="container_home" id="começo">
+            <div class="container_home" id="home">
 
                     <div class="dispositivos">
 
@@ -45,14 +47,15 @@
                 </div>
             </div>
 
-            <!-- cursos e alunos -->
-            <div  class= "container_cursos" id="cursos">
-                <h2 id="titulo"></h2>
+            <!-- turma e alunos -->
+             <h3 class="titulo_curso" id="titulo"></h3>
+            <div  class= "container_cursos hidden" id="cursos">
+                
             </div>
 
 
                 <!-- informações aluno -->
-            <div class="container_aluno" id="aluno"></div>
+            <div class="container_aluno hidden" id="aluno"></div>
 
            
 
