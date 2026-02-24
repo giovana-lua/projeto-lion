@@ -18,9 +18,7 @@ const botoes_curso = document.querySelectorAll ('.btn-curso')
      const dados = await response.json()
 
      return dados
-
  }
-
  
 // acionamento do botao do curso 
 botoes_curso.forEach(botao => {
@@ -30,7 +28,6 @@ botoes_curso.forEach(botao => {
     })
 })
 
-
 //assim que clica no botão a função leva para a turma
 async function navegarParaCursos (nomeCurso) {
 
@@ -39,8 +36,8 @@ async function navegarParaCursos (nomeCurso) {
     container_cursos.classList.remove('hidden');
 
     //pega o nome do curso 
-    const titulo_curso = document.getElementById('titulo');
-    titulo_curso.textContent = nomeCurso;
+    const titulo_ds = document.getElementById('titulo1');
+    titulo_ds.textContent = nomeCurso;
 
     //garante que os alunos que apareçam são daquele determinado curso 
     //busca os alunos
@@ -57,6 +54,21 @@ async function navegarParaCursos (nomeCurso) {
 
         const btnTexto = btnSair.lastChild;
         btnSair.innerHtml = `<img src= "./img/vector.png>" Voltar`
+}
+
+
+async function navegarParaAluno(aluno) {
+
+    container_cursos.classList.add('hidden')
+    container_aluno.classList.remove('hidden')
+
+    //pega o nome do aluno
+    const nomeAluno = document.getElementById('nome-aluno')
+    nomeAluno.textContent = aluno;
+
+
+
+    
 }
 
 
@@ -80,6 +92,10 @@ function criarCardAluno (aluno) {
     //monta o card e coloca na tela 
     card.appendChild(foto)
     card.appendChild(nome)
+
+    //leva para o aluno
+    card.onclick = () => navegarParaAluno(aluno)
+
     container.appendChild(card)
 }
 

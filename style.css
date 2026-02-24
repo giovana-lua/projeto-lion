@@ -71,7 +71,7 @@ h1{
 
 } 
 
-/* oculta o conteudo de uma div para aparecer o da outra */
+/* oculta o conteudo de uma div para aparecer o da outra, ignora o flex e sobrepõe */
 .hidden {
     display: none !important;
 }
@@ -171,15 +171,13 @@ h3 {
 /* container curso (alunos) */
 .container_cursos {
     background-color: coral;
-    width: 100%;
+    width: 100%; 
     height: auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 40px;
     justify-items: center;
-    
-
 }
 
 /* card dos alunos */
@@ -209,12 +207,7 @@ h3 {
     font-style: medium;
     font-size: 18px;
     color: #fff;
-    
-    
 }
-
-
-
 
 /* footer geral alinhamento e cor  */
 footer{
@@ -227,15 +220,10 @@ footer{
     padding: 20px 50px;
     flex-shrink: 0;
     margin-top: auto;
-
-    
-    
-    
-    
 }
 
 /* div contatos, ajusta alinhamento */
-footer .contatos{
+ .contatos{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -244,7 +232,7 @@ footer .contatos{
 
 
 /* div copyright, ajusta o alinhamento e a o estilo da fonte */
-footer .direitos{
+.direitos{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -252,7 +240,7 @@ footer .direitos{
 }
 
 /* div social ajusta o tamanho e os icones*/
-footer .social {
+.social {
     display: flex;
     align-items: center;
     justify-content: space-between;
