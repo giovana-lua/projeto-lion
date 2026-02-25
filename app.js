@@ -18,6 +18,15 @@ const botoes_curso = document.querySelectorAll ('.btn-curso')
      const dados = await response.json()
 
      return dados
+
+ }
+
+
+ async function buscarAluno(idAluno) {
+    const url = `https://lion-school-phbo.onrender.com/alunos/${idAluno}`
+    const response = await fetch(url)
+    const dados = await response.json()
+    return dados
  }
  
 // acionamento do botao do curso 
@@ -28,6 +37,7 @@ botoes_curso.forEach(botao => {
     })
 })
 
+
 //assim que clica no botão a função leva para a turma
 async function navegarParaCursos (nomeCurso) {
 
@@ -36,8 +46,8 @@ async function navegarParaCursos (nomeCurso) {
     container_cursos.classList.remove('hidden');
 
     //pega o nome do curso 
-    const titulo_ds = document.getElementById('titulo1');
-    titulo_ds.textContent = nomeCurso;
+    const titulo_curso = document.getElementById('titulo');
+    titulo_curso.textContent = nomeCurso;
 
     //garante que os alunos que apareçam são daquele determinado curso 
     //busca os alunos
@@ -56,7 +66,6 @@ async function navegarParaCursos (nomeCurso) {
         btnSair.innerHtml = `<img src= "./img/vector.png>" Voltar`
 }
 
-
 async function navegarParaAluno(aluno) {
 
     container_cursos.classList.add('hidden')
@@ -66,11 +75,15 @@ async function navegarParaAluno(aluno) {
     const nomeAluno = document.getElementById('nome-aluno')
     nomeAluno.textContent = aluno;
 
+    const mostrarAluno = await buscarAluno(aluno)
+
+    mostrarAluno.forEach(aluno => {
+        criarAluno(aluno)
+    })
 
 
     
 }
-
 
 //Criando os cards dos alunos 
 function criarCardAluno (aluno) {
@@ -84,20 +97,47 @@ function criarCardAluno (aluno) {
     const foto = document.createElement('img')
     foto.src = './img/aluno.png'
     
-
     //cria o nome do aluno
     const nome = document.createElement('p')
-    nome.textContent = aluno.nome
+    nome.textContent = aluno.nome.toUpperCase()
 
     //monta o card e coloca na tela 
     card.appendChild(foto)
     card.appendChild(nome)
 
-    //leva para o aluno
     card.onclick = () => navegarParaAluno(aluno)
 
     container.appendChild(card)
 }
+
+async function criarAluno (aluno) {
+
+    const container = document.getElementById('aluno')
+
+    const infoAluno = await buscarAluno(aluno)
+
+    const card = document.createElement('div')
+    card.classList.add('card-aluno')
+
+    const foto = document.createElement('img')
+    foto.src = './img/aluno.png'
+
+    const nome = document.createElement('span')
+    nome.textContent = aluno.nome
+
+    card.appendChild(foto)
+    card.appendChild(nome)
+
+    container.appendChild(card)
+
+    
+
+}
+
+
+
+
+
 
 // acionamento botão voltar
     const btnSair = document.getElementById ('btn-sair')
