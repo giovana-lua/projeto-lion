@@ -1,12 +1,13 @@
-"use-strict"
+"use strict"
  
 const container_home = document.getElementById('home')
 
 const container_cursos = document.getElementById ('cursos')
 
-const container_aluno = document.getElementById ('aluno')
+const container_aluno = document.getElementById ('aluno') 
 
 const botoes_curso = document.querySelectorAll ('.btn-curso')
+
 
 
 
@@ -63,7 +64,7 @@ async function navegarParaCursos (nomeCurso) {
         criarCardAluno(aluno); })
 
         const btnTexto = btnSair.lastChild;
-        btnSair.innerHtml = `<img src= "./img/vector.png>" Voltar`
+        btnSair.innerHTML = `<img src= "./img/vector.png"> Voltar`
 }
 
 async function navegarParaAluno(aluno) {
@@ -71,17 +72,11 @@ async function navegarParaAluno(aluno) {
     container_cursos.classList.add('hidden')
     container_aluno.classList.remove('hidden')
 
-    //pega o nome do aluno
-    const nomeAluno = document.getElementById('nome-aluno')
-    nomeAluno.textContent = aluno;
+    document.getElementById('titulo').textContent = "";
 
-    const mostrarAluno = await buscarAluno(aluno)
-
-    mostrarAluno.forEach(aluno => {
+    
         criarAluno(aluno)
-    })
-
-
+  
     
 }
 
@@ -110,34 +105,36 @@ function criarCardAluno (aluno) {
     container.appendChild(card)
 }
 
-async function criarAluno (aluno) {
+ function criarAluno (aluno) {
 
     const container = document.getElementById('aluno')
 
-    const infoAluno = await buscarAluno(aluno)
 
     const card = document.createElement('div')
-    card.classList.add('card-aluno')
+    card.classList.add('aluno-card')
 
     const foto = document.createElement('img')
     foto.src = './img/aluno.png'
 
-    const nome = document.createElement('span')
-    nome.textContent = aluno.nome
+    const nome = document.createElement('p')
+
+    const containerNotas = document.getElementById('notas')
+    cardNota.classList.add('notas')
+    const cardNota = document.createElement('div')
+    
+
+
+
+
+     nome.textContent = aluno.nome
 
     card.appendChild(foto)
     card.appendChild(nome)
 
     container.appendChild(card)
-
-    
+    containerNotas.appendChild(cardNota)
 
 }
-
-
-
-
-
 
 // acionamento botão voltar
     const btnSair = document.getElementById ('btn-sair')
@@ -154,5 +151,5 @@ async function criarAluno (aluno) {
 
     // limpa os cards 
     const limparCards = container_cursos.querySelectorAll('card-aluno')
-    limparCards.forEach(card => card.remove)
+    limparCards.forEach(card => card.remove())
     })

@@ -209,6 +209,19 @@ h3 {
     color: #fff;
 }
 
+.container_aluno {
+    background-color: aqua;
+}
+
+.aluno-card {
+    background-color: lightpink;
+}
+
+.notas {
+    background-color: aquamarine;
+}
+
+
 /* footer geral alinhamento e cor  */
 footer{
     display: flex;
