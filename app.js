@@ -4,7 +4,11 @@ const container_home = document.getElementById('home')
 
 const container_cursos = document.getElementById ('cursos')
 
+const container_info = document.getElementById ('info')
+
 const container_aluno = document.getElementById ('aluno') 
+
+const container_notas = document.getElementById ('notas')
 
 const botoes_curso = document.querySelectorAll ('.btn-curso')
 
@@ -45,7 +49,7 @@ async function navegarParaCursos (nomeCurso) {
     // mostra uma div e remove outra 
     container_home.classList.add('hidden');
     container_cursos.classList.remove('hidden');
-
+    container_info.classList.add('hidden');
     //pega o nome do curso 
     const titulo_curso = document.getElementById('titulo');
     titulo_curso.textContent = nomeCurso;
@@ -68,12 +72,19 @@ async function navegarParaCursos (nomeCurso) {
 }
 
 async function navegarParaAluno(aluno) {
-
+    //oculta o container
     container_cursos.classList.add('hidden')
+    
+    //mostra os dois containers
     container_aluno.classList.remove('hidden')
+    container_notas. classList.remove ('hidden')
+    container_info.classList.remove('hidden')
+    
 
     document.getElementById('titulo').textContent = "";
 
+    container_aluno.innerHTML = '';
+    container_notas.innerHTML = '';
     
         criarAluno(aluno)
   
@@ -108,8 +119,7 @@ function criarCardAluno (aluno) {
  function criarAluno (aluno) {
 
     const container = document.getElementById('aluno')
-
-
+    //crianso o card
     const card = document.createElement('div')
     card.classList.add('aluno-card')
 
@@ -117,21 +127,17 @@ function criarCardAluno (aluno) {
     foto.src = './img/aluno.png'
 
     const nome = document.createElement('p')
-
-    const containerNotas = document.getElementById('notas')
-    cardNota.classList.add('notas')
-    const cardNota = document.createElement('div')
-    
-
-
-
-
-     nome.textContent = aluno.nome
+     nome.textContent = aluno.nome.toUpperCase()
 
     card.appendChild(foto)
     card.appendChild(nome)
-
     container.appendChild(card)
+
+    const containerNotas = document.getElementById('notas')
+
+    const cardNota = document.createElement('div')
+    cardNota.classList.add('card-notas')
+
     containerNotas.appendChild(cardNota)
 
 }
@@ -143,11 +149,11 @@ function criarCardAluno (aluno) {
     // remove o "hidden" da home e adiciona nos demais
     container_home.classList.remove('hidden');
     container_cursos.classList.add('hidden');
-    container_aluno.classList.add('hidden')
+    container_aluno.classList.add('hidden');
+    container_notas.classList.add('hidden');
 
     // remove o titulo do curso para não aperecer na home
-    const titulo_curso = document.getElementById('titulo')
-    titulo_curso.textContent = ""
+     document.getElementById('titulo').textContent = ""
 
     // limpa os cards 
     const limparCards = container_cursos.querySelectorAll('card-aluno')

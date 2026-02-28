@@ -32,11 +32,6 @@ header .logo {
     gap: 20px;
 }
 
-/* imagem da logo */
-header-img{
-    width: 100px;
-}
-
 /* div bo botão sair */
 header .sair {
     display: flex;
@@ -112,16 +107,6 @@ main{
     gap: 50px;
 }
 
- .mulher{
-    
-}
-
- .cursos-btn{
-    
-    
-    
-    
-}
 /* botao curso */
 .btn-curso {
     background-color: #3347b0;
@@ -209,16 +194,66 @@ h3 {
     color: #fff;
 }
 
+
+.container-info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+     width: 1248px;
+    height: 482px ;
+    background-color: lightslategray;
+    bottom: 150px;
+}
+
+
 .container_aluno {
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    width: 480px;
+    height: 100%;
+    box-shadow: 8px 0px 8px rgba(51, 71, 176, 0.2)
+}
+
+.container_aluno img{
+    width: 400px;
+    height: 400px;
 }
 
 .aluno-card {
-    background-color: lightpink;
+    width: 400px;
+    height: 430px;
+     background-color: lightpink; 
 }
 
-.notas {
-    background-color: aquamarine;
+#aluno p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-style: medium;
+    font-size: 18px;
+    color: #3347B0;
+    
+}
+
+#notas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(88, 221, 192);
+    box-shadow: 8px 0px 8px rgba(51, 71, 176, 0.2);
+    width: 480px;
+    height: 100%;
+}
+
+.card-notas {
+    width: 400px;
+    height: 430px;
+    background-color: aliceblue;
+
 }
 
 
